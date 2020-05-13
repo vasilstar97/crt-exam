@@ -6,4 +6,4 @@
 4. в /docker/php есть Dockerfile, в него добавляем переменную окружения со своим именем фамилией, пересобираем проект с помощью docker-compose up --build. У меня ругалось на версию, поэтому в yml файле поменял на 3.3. winpty docker-compose exec app composer install для установки пакетов внутри контейнера. Всё будет доступно по адресу docker-machine ip default и 8008 порту
 5. git merge conflicted
 6. в MainController.php оставляем обе строки про алабаму и толерантность, больше конфликтов не кидает
-8. 
+8. в docker/php собираем образ с помощью docker build и пушим его в свой хаб
