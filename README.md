@@ -1,36 +1,6 @@
-Docker and docker-compose class
-===============================
-
-Note about working user variables: you should export two variables at host machine — `DUID` (docker user id), variable with your current user ID and `DGID` (docker group id), variable with your current group.
-
-These variables are uses for launch php-process in a container.
-
-For example:    
-```shell script
-export DUID=$(id -u) && export DGID=$(id -g)
-```
-
-## Run project locally
-
-1. Build project: 
-    ```shell script
-    docker-compose build
-    ```
-1. Launch project:
-    ```shell script
-    docker-compose up -d
-    ```
-1. Install packages:
-    ```shell script
-    docker-compose exec app composer install
-    ```
-1. Run tests:
-    ```shell script
-    docker-compose exec app vendor/bin/phpunit
-    ```
-
-After start docker-compose you will see in your browser the next one:
-
-![Screenshot_2020-05-12_at_15.12.54](/uploads/0ae4961e86a2bd8ddd5472de03351a71/Screenshot_2020-05-12_at_15.12.54.png)
-
-This is a page with information about server environment variables, request and response data.
+1. git clone https://git.crtweb.ru/creative-packages/docker-lesson в репозитории
+2. git remote set-url origin https://github.com/vasilstar97/crt-exam
+затем git push и всё стянется в удаленный репозиторий в master
+(при создании репозитория гит вроде как дает возможность сразу инициализировать его с другого репозитория, но не проверял)
+3. git branch dev - создаем новую ветку, с помощью switch переключаемся на нее
+4. в /docker/php есть Dockerfile, в него добавляем переменную окружения со своим именем фамилией, пересобираем проект с помощью docker-compose up --build. У меня ругалось на версию, поэтому в yml файле поменял на 3.3. winpty docker-compose exec app composer install для установки пакетов внутри контейнера. Всё будет доступно по адресу docker-machine ip default и 8008 порту

@@ -10,6 +10,7 @@ ARG UID
 ARG GID
 ENV APP_TARGET_UID ${UID:-1000}
 ENV APP_TARGET_GID ${GID:-1000}
+ENV APP_FIO "Vasiliy Starikov"
 
 RUN apk --no-cache add shadow && \
     usermod -u ${APP_TARGET_UID} www-data
